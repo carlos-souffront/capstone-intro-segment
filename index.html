@@ -4,9 +4,54 @@
 </head>
 
 <style>
-  body {
+  @keyframes arrow-animation {
+    0% {
+      background-position: -100% 0%;
+    }
     
+    100% {
+      background-position: 200% 0%;
+    }
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .intro-bg {
+    display: in-line block;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #ee82ee 28%, #00ffff);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .intro-bg::before, 
+  .intro-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+      #ffe4e1, rgba(255, 255, 255, 0));
+    transform-origin: center;
+    animation: arrow-animation 4s infinite linear;
+  }
+  
+  .intro-bg::before {
+    left: 0;
+    transform: rotate(-45deg);
+  }
+  
+  .intro-bg::after {
+    right: 0;
+    transform: rotate(45deg);
   }
 </style>
 
-<div class="dream-gradient"></div>
+<div class="intro-bg"></div>
